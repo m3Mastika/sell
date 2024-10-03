@@ -650,9 +650,14 @@ fi;
 
 delete_file_if_exists $script_log_file;
 check_startup_parameters;
-configure_ipv6;
-install_requred_packages;
-install_3proxy;
+check_ipv6;
+if is_proxyserver_installed; then
+  echo -e "Proxy server already installed, reconfiguring:\n";
+else
+  configure_ipv6;
+  install_requred_packages;
+  install_3proxy;
+fi;
 backconnect_ipv4=$(get_backconnect_ipv4);
 generate_random_users_if_needed;
 create_startup_script;
@@ -661,5 +666,7 @@ open_ufw_backconnect_ports;
 run_proxy_server;
 write_backconnect_proxies_to_file;
 write_proxyserver_info;
+
+exit 0
 
 exit 0
