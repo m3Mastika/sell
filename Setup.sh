@@ -49,7 +49,7 @@ use_localhost=false
 use_random_auth=false
 uninstall=false
 print_info=false
-inet6_network_interfaces_configuration_check=true
+inet6_network_interfaces_configuration_check=false
 backconnect_proxies_file="default"
 # Global network inteface name
 interface_name="$(ip -br l | awk '$1 !~ "lo|vir|wl|@NONE" { print $1 }' | awk 'NR==1')"
