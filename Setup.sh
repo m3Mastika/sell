@@ -276,7 +276,7 @@ function check_ipv6(){
   if [[ $(ip -6 addr show scope global) ]]; then
     echo "IPv6 global address is allocated on server successfully";
   else
-    log_err_and_exit "Error: IPv6 global address is not allocated on server, allocate it or contact your VPS/VDS support.";
+    log_err_and_exit "Error: Cihaz ipv6 Desteklemiyor";
   fi;
 
   local ifaces_config="/etc/network/interfaces";
